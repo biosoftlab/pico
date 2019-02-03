@@ -1,0 +1,25 @@
+negative regulation of catalytic activity	breast cancer
+positive regulation of protein binding	breast cancer
+regulation of branching involved in salivary gland morphogenesis	breast cancer
+positive regulation of peptidase activity	breast cancer
+skeletal muscle tissue regeneration	breast cancer
+positive regulation of DNA replication	breast cancer
+regulation of nitric-oxide synthase activity	breast cancer
+positive regulation of phospholipase activity	breast cancer
+negative regulation of I-kappaB kinase/NF-kappaB signaling	breast cancer
+apoptotic process involved in blood vessel morphogenesis	breast cancer
+regulation of protein kinase activity	breast cancer
+positive regulation of phospholipase C activity	breast cancer
+response to alkaloid	breast cancer
+regulation of cyclin-dependent protein serine/threonine kinase activity	breast cancer
+negative regulation of cyclin-dependent protein serine/threonine kinase activity	breast cancer
+positive regulation of GTPase activity	breast cancer
+regulation of protein homodimerization activity	breast cancer
+activation of MAPKK activity	breast cancer
+DNA biosynthetic process	breast cancer
+mitochondrial DNA repair	breast cancer
+negative regulation of protein serine/threonine kinase activity	breast cancer
+negative regulation of RNA polymerase II regulatory region sequence-specific DNA binding	breast cancer
+positive regulation of cysteine-type endopeptidase activity involved in apoptotic process	breast cancer
+negative regulation of DNA binding	breast cancer
+regulation of DNA-binding transcription factor activity	breast cancer

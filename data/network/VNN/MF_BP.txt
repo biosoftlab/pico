@@ -1,0 +1,25 @@
+cyclin-dependent protein serine/threonine kinase activity	regulation of cyclin-dependent protein serine/threonine kinase activity
+cyclin-dependent protein serine/threonine kinase activity	negative regulation of cyclin-dependent protein serine/threonine kinase activity
+MAP kinase kinase activity	activation of MAPKK activity
+epidermal growth factor-activated receptor activity	positive regulation of DNA replication
+phospholipase activity	positive regulation of phospholipase activity
+phospholipase C activity	positive regulation of phospholipase C activity
+peptidase activity	positive regulation of peptidase activity
+protein binding	positive regulation of protein binding
+protein binding	negative regulation of DNA binding
+kinase activity	positive regulation of GTPase activity
+GTPase activity	negative regulation of catalytic activity
+1-phosphatidylinositol 4-kinase activity	negative regulation of I-kappaB kinase/NF-kappaB signaling
+scaffold protein binding	response to alkaloid
+scaffold protein binding	positive regulation of cysteine-type endopeptidase activity involved in apoptotic process
+MAP kinase activity	skeletal muscle tissue regeneration
+tapasin binding	regulation of protein homodimerization activity
+JUN kinase activity	mitochondrial DNA repair
+protein kinase activity	regulation of protein kinase activity
+nitric-oxide synthase activity	regulation of nitric-oxide synthase activity
+DNA-binding transcription factor activity	regulation of DNA-binding transcription factor activity
+cholesterol transporter activity	regulation of branching involved in salivary gland morphogenesis
+estrogen receptor binding	DNA biosynthetic process
+protein serine/threonine kinase activity	negative regulation of protein serine/threonine kinase activity
+delayed rectifier potassium channel activity	apoptotic process involved in blood vessel morphogenesis
+RNA polymerase II regulatory region sequence-specific DNA binding	negative regulation of RNA polymerase II regulatory region sequence-specific DNA binding
