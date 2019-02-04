@@ -9,9 +9,49 @@ python version: 3.6.8
 pytorch version: 1.0.0
 
 
+Data setup for RW
+
+It recommends every drug name in lowercase.
+1. Drug-target-DEGs relations:
+    Fill the file 'data/drug/drug_targets_DEGs.txt' with following format of drug-targets-DEG.
+    Input data format: drug1    target1|target2 DEG1|DEG2|DEG3
+                       ...
+
+2. Network relations:
+    Fill the file 'data/network/RW/original_network.txt' with following format of subject-object-predicate.
+    There are 4 types of predicates:Regulate(R), Express(E), Directed Signaling(S), and Undirected Signaling(U).
+    Input data format: EGF#P	EGFR#P	Directed Signaling
+                       ...
+
+
+Code in RW:
+1. RW_training.py:
+        Train network with given weight-combinations. It make weighted-networks in 'randomwalk_weight_training' folder.
+        Funiction:
+            make_weighted_network(rwt.WEIGHT_R_OPTIONS, rwt.WEIGHT_E_OPTIONS, rwt.WEIGHT_S_OPTIONS, rwt.WEIGHT_U_OPTIONS)
+        
+        # training weight options
+            rwt.WEIGHT_R_OPTIONS = [0.2, 1.0]
+            rwt.WEIGHT_E_OPTIONS = [0.2, 1.0]
+            rwt.WEIGHT_S_OPTIONS = [0.2, 1.0]
+            rwt.WEIGHT_U_OPTIONS = [0.2, 1.0]
+            rwt.make_weighted_network(rwt.WEIGHT_R_OPTIONS, rwt.WEIGHT_E_OPTIONS, rwt.WEIGHT_S_OPTIONS, rwt.WEIGHT_U_OPTIONS)
+2. RW_main.py
+        From optimal network and cut-off threshold from RW_training.py, it predicts DEGs from input drug name.
+        
+        # run with trained results
+            rwm.RANDOM_WALK_SCORE_CUT_OFF = opt_threshold
+            rwm.NETWORK_FILE_PATH = 'randomwalk_weight_training/%d/%d.txt' % (opt_network, opt_network)
+            rwm.NETWORK_DICT_FILE_PATH = 'randomwalk_weight_training/%d/%d_dict.txt' % (opt_network, opt_network)
+            
+            COMBI_OR_SINGLE = 'single'  # 'single' or 'combination'
+            DRUG_NAME_LIST = ['aminoglutethimide']
+            rwm.deg_prediction(COMBI_OR_SINGLE, DRUG_NAME_LIST)
+
+
 Data setup for VNN
 
-It recommends every drug name in lower case.
+It recommends every drug name in lowercase.
 Every input files are wrote in tsv format.
 
 1. Drug-DEG relations:
