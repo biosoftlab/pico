@@ -1,6 +1,6 @@
 # pico
 
-PICO predicts durg effect on a target disease and it provide paths between drug target genes and the disease.
+PICO predicts drug effects on a target disease and it provides paths between drug target proteins and the target disease.
 
 
 Environment
@@ -14,19 +14,19 @@ Data setup for VNN
 It recommends every drug name in lower case.
 Every input files are wrote in tsv format.
 
-1. Drug_DEG information:
+1. Drug-DEG relations:
     Fill the file 'data/drug/target_phenotype/Drug_DEGs.txt' with following format of drug-DEG pair
     Input data format: drug1 DEG1|DEG2|DEG3
                        ...
 
-2. Target phentype effective drug list:
+2. Effective drugs for the target phenotype(=disease):
     Fill the file 'data/drug/target_phenotype/target_phenotype_drug_list.txt' with follwing format of drugs
     Input data format: drug1
                        drug2
                        drug3
                        ...
 
-3. Interaction information of gene(GE), molecular function(MF), biological process(BP), and phenotype(PH):
+3. Relations of gene(GE), molecular function(MF), biological process(BP), and phenotype(PH):
     Fill the files under 'data/network/VNN'
     Files: GE_MF.txt, MF_BP.txt, BP_PH.txt
 
@@ -41,9 +41,9 @@ Code in VNN:
         It contains util functions, such as file read and write, for VNN.py and python files in RWVNN
 2. CustomizedLinear.py
         Make custom connection in the neural network.
-        It modified from https://github.com/uchida-takumi/CustomizedLinear/blob/master/CustomizedLinear.py
+        It is the modified version of https://github.com/uchida-takumi/CustomizedLinear/blob/master/CustomizedLinear.py
 3. VNN_main:
-        Get VNN auroc score from DEGs and effectiveness of drug
+        Get VNN auroc score.
         Function:
             get_auroc(n_epochs, cross_validation, oversampling_ratio)
 
@@ -65,17 +65,18 @@ Code in VNN:
 Data setup for RWVNN(PICO)
 
 It recommends every drug name in lower case.
-Every input files are wrote in tsv format.
+Every input file is wrote in tsv format.
 
 1. Drug_target information:
-    It needs to fill the two files. , Combination_Drug_Targets_From_DCDB.txt
+    It needs to fill the two files. Drug_Target.txt, Combination_Drug_Targets_From_DCDB.txt
         -Drug_Target.txt
-            Fill the files with follwing format example
+            Fill the files with following format example
             Input data format: drug1 Target1|Target2|Target3
                                ...
         -Combination_Drug_Targets_From_DCDB.txt
             Fill the files with follwing format example
-            This file needs header
+            This file needs header as below
+               --> ID: DCDBID, label: P(=positive) or N(=nagative), name: names of drugs, targets: gene symbols of target proteins
             Input data format: ID   label   name    targets (header)
                                DCID1 P drug1|drug2 Target1|Target2|Target3
                                ...
@@ -90,7 +91,7 @@ Every input files are wrote in tsv format.
 Code in RWVNN
 
 1.RWVNN_path_finder.py:
-        Get total path with RW score and VNN path score in .tsv file format under path_result folder
+        Get total paths and their scores calculated with RW scores and VNN path scores (in .tsv file format under path_result folder)
 
         Function:
             get_RWVNN_path(single_data, is_comb, n_epochs, oversampling_ratio, *drug_name)
@@ -111,7 +112,7 @@ Code in RWVNN
             get_RWVNN_path(single_data, is_comb, n_epochs, oversampling_ratio, "lapatinib")
 
 2.RWVNN_score.py:
-        Get VNN score of drugs from predicted DEGs from RW in .tsv file format under score_result folder
+        Get VNN scores for drugs using their predicted DEGs from RW (in .tsv file format under score_result folder)
 
         Function:
             get_drug_score(is_comb, n_epochs, oversampling_ratio)
