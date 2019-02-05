@@ -39,7 +39,7 @@ Code in RW:
             rwt.WEIGHT_S_OPTIONS = [0.2, 1.0]
             rwt.WEIGHT_U_OPTIONS = [0.2, 1.0]
             rwt.make_weighted_network(rwt.WEIGHT_R_OPTIONS, rwt.WEIGHT_E_OPTIONS, rwt.WEIGHT_S_OPTIONS, rwt.WEIGHT_U_OPTIONS)
-2. RW_main.py
+2. RW_main.py:
         From the optimal network and cut-off threshold from RW_training.py, it predicts DEGs from input drug name.
         
         # run with trained results
@@ -82,7 +82,7 @@ Every input files are wrote in tsv format.
 Code in VNN:
 1. VNN_utils.py:
         It contains util functions, such as file read and write, for VNN.py and python files in RWVNN
-2. CustomizedLinear.py
+2. CustomizedLinear.py:
         Make custom connection in the neural network.
         It is the modified version of https://github.com/uchida-takumi/CustomizedLinear/blob/master/CustomizedLinear.py
 3. VNN_main:
