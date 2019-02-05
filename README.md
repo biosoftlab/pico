@@ -3,7 +3,7 @@
 PICO predicts drug effects on a target disease and it interprets underlying paths between drug target proteins and the target disease.
 This framework consists of two parts;
   1) RW: random walk based simulation of drug influence on molecules 
-  2) VNN: Visible neural network based prediction of drug influence on the target disease through cellular functions
+  2) VNN: visible neural network based prediction of drug influence on the target disease through cellular functions
 
 Environment
 virtual environment: conda 4.5.11
