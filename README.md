@@ -1,7 +1,9 @@
 # pico
 
-PICO predicts drug effects on a target disease and it provides paths between drug target proteins and the target disease.
-
+PICO predicts drug effects on a target disease and it interprets underlying paths between drug target proteins and the target disease.
+This framework consists of two parts;
+  1) RW: random walk based simulation of drug influence on molecules 
+  2) VNN: Visible neural network based prediction of drug influence on the target disease through cellular functions
 
 Environment
 virtual environment: conda 4.5.11
@@ -17,16 +19,17 @@ It recommends every drug name in lowercase.
     Input data format: drug1    target1|target2 DEG1|DEG2|DEG3
                        ...
 
-2. Network relations:
+2. Molecular relations:
     Fill the file 'data/network/RW/original_network.txt' with following format of subject-object-predicate.
-    There are 4 types of predicates:Regulate(R), Express(E), Directed Signaling(S), and Undirected Signaling(U).
+    There are two types of nodes for subject and object: #P (=protein), #D (=DNA)
+    There are four types of predicates:Regulate(R), Express(E), Directed Signaling(S), and Undirected Signaling(U).
     Input data format: EGF#P	EGFR#P	Directed Signaling
                        ...
 
 
 Code in RW:
 1. RW_training.py:
-        Train network with given weight-combinations. It make weighted-networks in 'randomwalk_weight_training' folder.
+        Train weights for three edge types (i.e. R, E, S/U). It generates weighted networks in 'randomwalk_weight_training' folder.
         Funiction:
             make_weighted_network(rwt.WEIGHT_R_OPTIONS, rwt.WEIGHT_E_OPTIONS, rwt.WEIGHT_S_OPTIONS, rwt.WEIGHT_U_OPTIONS)
         
@@ -37,7 +40,7 @@ Code in RW:
             rwt.WEIGHT_U_OPTIONS = [0.2, 1.0]
             rwt.make_weighted_network(rwt.WEIGHT_R_OPTIONS, rwt.WEIGHT_E_OPTIONS, rwt.WEIGHT_S_OPTIONS, rwt.WEIGHT_U_OPTIONS)
 2. RW_main.py
-        From optimal network and cut-off threshold from RW_training.py, it predicts DEGs from input drug name.
+        From the optimal network and cut-off threshold from RW_training.py, it predicts DEGs from input drug name.
         
         # run with trained results
             rwm.RANDOM_WALK_SCORE_CUT_OFF = opt_threshold
