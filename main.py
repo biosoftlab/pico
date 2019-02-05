@@ -9,7 +9,7 @@ if __name__ == '__main__':
     """
     RW_training.py
     
-    Train weight of network for better prediction using random-walk
+    Train edge weights of the molecular network using random walk with restart
     """
 
     # training weight options
@@ -33,7 +33,7 @@ if __name__ == '__main__':
     """
     RW_main.py
     
-    Get predicted DEGs from drug or drug combination
+    Get predicted DEGs from a single drug or a drug combination
     """
     opt_threshold = 0.009  # If you start with training, please remove this line
 
@@ -43,7 +43,7 @@ if __name__ == '__main__':
     rwm.NETWORK_DICT_FILE_PATH = 'randomwalk_weight_training/%d/%d_dict.txt' % (opt_network, opt_network)
 
     COMBI_OR_SINGLE = 'single'  # 'single' or 'combination'
-    DRUG_NAME_LIST = ['aminoglutethimide']
+    DRUG_NAME_LIST = ['aminoglutethimide'] # example
     rwm.deg_prediction(COMBI_OR_SINGLE, DRUG_NAME_LIST)
 
 
